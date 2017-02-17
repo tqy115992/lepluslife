@@ -223,6 +223,21 @@ public class SwaggerConfig {
         .apiInfo(couponApiInfo());
   }
 
+  @Bean
+  public Docket productSecKillApi() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .groupName("积分秒杀相关接口")
+        .genericModelSubstitutes(DeferredResult.class)
+        .useDefaultResponseMessages(false)
+        .forCodeGeneration(true)
+        .pathMapping("/")
+        .select()
+        .paths(or(regex("/productSecKill/.*")))
+        .build()
+        .apiInfo(productSecKillApiInfo());
+  }
+
+
 
   private ApiInfo userApiInfo() {
     ApiInfo apiInfo = new ApiInfo("用户相关操作",//大标题
@@ -405,6 +420,17 @@ public class SwaggerConfig {
 
   private ApiInfo couponApiInfo() {
     return new ApiInfo("优惠券相关接口",//大标题
+                       "EHR Platform's REST API, all the applications could access the Object model data via JSON.",
+                       "0.1",//版本
+                       "NO terms of service",
+                       "zhangwenit@126.com",//作者
+                       "The Apache License, Version 2.0",//链接显示文字
+                       "http://www.apache.org/licenses/LICENSE-2.0.html"//网站链接
+    );
+  }
+
+  private ApiInfo productSecKillApiInfo() {
+    return new ApiInfo("积分秒杀相关接口",//大标题
                        "EHR Platform's REST API, all the applications could access the Object model data via JSON.",
                        "0.1",//版本
                        "NO terms of service",

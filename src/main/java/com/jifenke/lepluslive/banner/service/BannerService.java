@@ -369,8 +369,7 @@ public class BannerService {
       result.put("productId",   o2[5] == null ? "0" : o2[5].toString());
       result.put("merchantId",  o2[6] == null ? "0" : o2[6].toString());
     }
-    return result
-        ;
+    return result;
   }
 
 }
